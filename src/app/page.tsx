@@ -111,7 +111,7 @@ export default function Home() {
           </div>
           <div className={styles.menuBox}>
             <div className={styles.menuImgBox}>
-              <Image src="/images/taca_KinderBueno.jpg" alt="Kinder Bueno" fill />
+              <Image src="/images/taca_kinderBueno.jpg" alt="Taça Kinder Bueno" fill />
             </div>
             <div className={styles.menuText}><h3>Kinder Bueno</h3></div>
           </div>
@@ -137,7 +137,7 @@ export default function Home() {
             <div className={styles.menuImgBox}>
               <Image src="/images/milkshake_de_morango.jpg" alt="Milk Shake de Morango" fill />
             </div>
-            <div className={styles.menuText}><h3>Misto especial</h3></div>
+            <div className={styles.menuText}><h3>Milk Shake de Morango</h3></div>
           </div>
         </div>
 
