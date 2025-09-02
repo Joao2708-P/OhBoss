@@ -1,167 +1,574 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
-
-.main {
+/* =========================
+   Banner
+========================= */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url('/images/img.png') center/cover no-repeat;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.bannerContent {
+  color: #fff;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.bannerTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.bannerText {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #f1f1f1;
+}
+
+.btn {
+  margin-top: 25px;
+  display: inline-block;
+  padding: 12px 30px;
+  background: #ff0157;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #e6004c;
+  letter-spacing: 4px;
+}
+
+
+/* =========================
+   Botão
+========================= */
+.btn {
+  font-size: 1em;
+  color: #fff;
+  background: #ff0157;
+  display: inline-block;
+  padding: 10px 30px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  transition: 0.5s;
+  margin-bottom: 20px;
+}
+
+.btn:hover {
+  letter-spacing: 6px;
+}
+
+/* =========================
+   Header / Logo / Nav
+========================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 80px;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.5s;
+  background: transparent;
+}
+
+/* sticky aplicado como classe global via JS */
+.header:global(.sticky) {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 12px 40px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.navegacao {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 400;
+  transition: 0.3s;
+}
+
+.navLink:hover {
+  color: #ff0157;
+}
+
+/* Hover quando header estiver sticky: fundo do link muda */
+.header:global(.sticky) .navLink {
+  color: #f1f1f1;
+}
+
+.header:global(.sticky) .navLink:hover {
+  background: #ff0157;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+/* =========================
+   Seções gerais
+========================= */
+.section {
+  padding: 100px;
+}
+
+.menuTitle {
+    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
+.row {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.col50 {
+  position: relative;
+  width: 48%;
+}
+
+.titleText {
+  color: #000;
+  font-size: 2em;
+  font-weight: 300;
+}
+
+.titleText span {
+  color: #ff0157;
+  font-weight: 700;
+}
+
+.titleTextHighlight {
+  color: #ff0157;
+  font-weight: 700;
+  font-size: 1.5em;
+}
+
+.imgBox {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+.imgBox img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================
+   Sobre
+========================= */
+.about {
+  padding: 100px 40px;
+  background: #fff;
+}
+
+.about p {
+  margin-top: 15px;
+  color: #444;
+  line-height: 1.8;
+}
+
+/* =========================
+   Cardápio
+========================= */
+.menu {
+  background-color: #4a002c;
+}
+
+.menuTitleCard {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.titleCard {
+  color: #fff;
+}
+
+.titleCard span {
+  color: #ff0157;
+  font-weight: 700;
+  font-size: 1.5em;
+}
+
+.menuContent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 36px;
+  margin: 40px auto 0;
+  max-width: 1200px;
+  padding: 0 24px;
+}
+
+.menuBox {
+  width: 100%;
+  border: 12px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: #fff;
+}
+
+.menuBox:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+.menuImgBox {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.menuImgBox img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s;
+}
+
+.menuImgBox img:hover {
+  cursor: pointer;
+  transform: scale(1.04);
+}
+
+.menuText {
+  padding: 16px 8px 12px;
+}
+
+.menuText h3 {
+  font-weight: 400;
+  color: #111;
+}
+
+/* =========================
+   Expert
+========================= */
+.expert {
+  padding: 0;
+  background: transparent;
+}
+.expertVideoWrapper {
+  width: 100%;
   margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
+  padding: 0;
+}
+.expertVideoContainer {
+  position: relative;
+  width: 100%;
+  /* Mantém proporção 16:9 e adapta */
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+.expertVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.expertContent {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 40px;
 }
 
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
+.menuTitle p {
+  color: #000;
 }
 
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
+.expertBox {
+  width: 250px;
+  margin: 15px;
+}
+
+.expertImgBox {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.expertImgBox img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.expertText {
+  padding: 15px 0 5px;
+}
+
+.expertText h3 {
+  font-weight: 400;
+  color: #111;
+}
+
+/* =========================
+   Testimonials
+========================= */
+.testimonials {
+  padding: 100px 40px;
+  background: #4a002c;
+}
+
+/* Títulos e textos claros em seções escuras */
+.testimonials .titleText {
+  color: #fff;
+}
+
+.testimonials .menuTitle p {
+  color: #e6e6e6;
+}
+
+.whiteText {
+  color: #fff;
+}
+
+.testimonialsContent {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 40px;
+}
+
+.testimonialsBox {
+  width: 100%;
+  max-width: 340px;
+  margin: 20px;
+  padding: 28px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.testimonialsBox:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.22);
+}
+
+.testimonialsImgBox {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.testimonialsImgBox img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonialsText {
+  text-align: center;
+}
+
+.testimonialsText p {
+  color: #666;
+  font-style: italic;
+}
+
+.testimonialsText h3 {
+  margin-top: 20px;
+  font-size: 1em;
+  color: #ff0157;
   font-weight: 600;
 }
 
-.ctas {
-  display: flex;
-  gap: 16px;
-}
-
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
+.testimonials .buttonComments {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
+/* =========================
+   Contato
+========================= */
+.contact {
+  /* pode usar altura fixa ou aspect-ratio */
+  position: relative;
+  width: 100%;
+  height: 420px; /* ajuste como preferir */
+  /* ou: aspect-ratio: 16 / 9; */
 }
 
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
+.map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
 }
 
+/* =========================
+   Rodapé
+========================= */
 .footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
+  padding: 24px 40px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background: #fafafa;
 }
 
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.footerText {
+  color: #333;
 }
 
-.footer img {
-  flex-shrink: 0;
+.footerLink {
+  color: #ff0157;
+  font-weight: 500;
+  text-decoration: none;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+/* =========================
+   Responsivo
+========================= */
+@media (max-width: 991px) {
+  .header {
+    padding: 10px 20px;
   }
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
+  .navegacao {
+    position: fixed;
+    top: 64px;
+    right: 0;
+    width: 100%;
+    background: #111;
     flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 20px;
   }
 
-  .ctas a {
-    font-size: 14px;
+  .navegacaoActive {
+    max-height: 360px;
+    padding: 10px 20px 16px;
+  }
+
+  .menuToggle {
+    position: relative;
+    width: 40px;
     height: 40px;
+    background: transparent;
+    display: block;
+    cursor: pointer;
+  }
+
+  .menuToggle::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    box-shadow: 0 8px 0 #fff, 0 16px 0 #fff;
+  }
+
+  .menuToggleActive::before {
+    top: 18px;
+    box-shadow: none;
+    transform: rotate(45deg);
+  }
+  .menuToggleActive::after {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 8px;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    transform: rotate(-45deg);
+  }
+
+  .row {
+    flex-wrap: wrap;
+  }
+
+  .col50 {
+    width: 100%;
+  }
+
+  .imgBox {
+    height: 240px;
+    margin-top: 20px;
+  }
+  
+  .logo img {
+    height: 36px;
+  }
+  .menuContent {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
     padding: 0 16px;
   }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+@media (max-width: 640px) {
+  .menuContent {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 16px;
   }
 }
