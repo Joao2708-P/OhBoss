@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { supabaseServer } from '../../../utils/supabase/server'
+import { getSupabaseServer } from '../../../utils/supabase/server'
 
 export async function POST(request: Request) {
   try {
@@ -15,6 +15,7 @@ export async function POST(request: Request) {
     // garante bucket
     // nota: createBucket falha se já existir; ignoramos erro 409
     // @ts-ignore - createBucket não tipado nas versões antigas
+    const supabaseServer = getSupabaseServer()
     const { error: bucketError } = await (supabaseServer.storage as any).createBucket?.('comments-avatars', {
       public: true
     })

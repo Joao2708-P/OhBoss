@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
-import  { supabaseServer } from '../../utils/supabase/server';
+import  { getSupabaseServer } from '../../utils/supabase/server';
 
 export async function GET(request: Request) {
     const { searchParams } = new  URL(request.url);
     const postId = searchParams.get('post_id');
     if(!postId) return NextResponse.json({error: 'postId é obrigatório' }, {status: 400});
 
+    const supabaseServer = getSupabaseServer();
     const { data, error } = await supabaseServer
     .from("comments")
     .select("id, name, avatar_url, content, rating, created_at")
@@ -25,6 +26,7 @@ export async function POST(request: Request) {
         return NextResponse.json({ error: 'Conteúdo obrigatório '}, {status: 400})
     }
 
+    const supabaseServer = getSupabaseServer();
     const { data, error } = await supabaseServer
         .from('comments')
         .insert({
