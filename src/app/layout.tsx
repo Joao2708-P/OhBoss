@@ -15,9 +15,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Ôh Boss Açaí",
   description: "Loja da açai e sorvetes de Campinas",
-  icons: {
-    icon: "/ohboss-icon-ob.svg",
-  },
 };
 
 export default function RootLayout({

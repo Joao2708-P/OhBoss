@@ -286,7 +286,7 @@ export default function Home() {
       {/* Footer */}
       <div className={styles.footer}>
         <p className={styles.footerText}>
-          © 2024 João Guilherme — <a href="#banner" className={styles.footerLink}>Oh Boss Açaí</a>
+          © 2025 João Guilherme — <a href="#banner" className={styles.footerLink}>Oh Boss Açaí</a>
         </p>
       </div>
     </div>
