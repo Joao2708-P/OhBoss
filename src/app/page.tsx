@@ -24,6 +24,8 @@ export default function Home() {
 
   function ToggleMenu(): void {
     setMenuOpen((prev) => !prev);
+    const html = document.documentElement;
+    html.style.overflow = !menuOpen ? 'hidden' : '';
   }
   
   return (

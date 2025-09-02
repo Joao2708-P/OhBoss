@@ -488,22 +488,25 @@
 
   .navegacao {
     position: fixed;
-    top: 64px;
-    right: 0;
-    width: 100%;
-    background: #111;
+    inset: 0;
+    background: rgba(17, 17, 17, 0.94);
+    backdrop-filter: saturate(160%) blur(6px);
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    padding: 0 20px;
+    gap: 8px;
+    padding: 82px 24px 24px;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 10000;
   }
 
   .navegacaoActive {
-    max-height: 360px;
-    padding: 10px 20px 16px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 
   .menuToggle {
@@ -513,6 +516,7 @@
     background: transparent;
     display: block;
     cursor: pointer;
+    z-index: 10001; /* garante clique acima da logo */
   }
 
   .menuToggle::before {
@@ -555,8 +559,34 @@
     margin-top: 20px;
   }
   
+  .logo {
+    max-width: 100%;
+  }
   .logo img {
-    height: 36px;
+    height: 52px;
+    width: auto;
+  }
+
+  /* Melhor espaçamento dos links do menu mobile */
+  .navegacao li { width: 100%; }
+  .navegacao .navLink {
+    display: block;
+    width: 100%;
+    padding: 14px 12px;
+    border-radius: 10px;
+    font-size: 1.06rem;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+  .navegacao .navLink:last-child {
+    border-bottom: none;
+  }
+  .navegacao .navLink:hover {
+    background: rgba(255,255,255,0.08);
+  }
+  .navegacao .navLink:active {
+    transform: scale(0.98);
   }
   .menuContent {
     grid-template-columns: repeat(2, 1fr);
